@@ -11,9 +11,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  async getHello(request: RequestObj): Promise<string> {
-    const test = 'I want a caption about hammers';
-    return await this.appService.fulfillRequest(request);
+  getHello(request: RequestObj): string {
+    return this.appService.getHello();
   }
   @Post()
   async personalAssistant(@Body() request: RequestObj): Promise<string> {
