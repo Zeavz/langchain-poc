@@ -14,7 +14,8 @@ export class AppService {
     const model = new OpenAI({ temperature: 0.9 });
     const template =
       'Pretend you are a marketing expert that writes marketing posts for platforms like Facebook, Instagram, google, and Pinterest. Your reply must be a valid JSON object, where you will produce 3 different caption variations within an array with the attribute "caption". If we had a previous' +
-      'conversation this would be the history: {history}. Also this is a list of your previous captions so try your best to match the writing style of these: {previousCaptions}. {userMessage}';
+      'conversation this would be the history: {history}. This is a list of your previous captions that you have used in the past' +
+      'try to match the writing style: {previousCaptions}. {userMessage}';
     const prompt = new PromptTemplate({
       template: template,
       inputVariables: ['userMessage', 'previousCaptions', 'history'],
