@@ -18,4 +18,9 @@ export class AppController {
   async personalAssistant(@Body() request: RequestObj): Promise<string> {
     return await this.appService.fulfillRequest(request);
   }
+
+  @Post('/generateImage/')
+  async generateImage(@Body() request: { prompt: string }): Promise<any> {
+    return await this.appService.generateImage(request.prompt);
+  }
 }
